@@ -1,4 +1,4 @@
-package runner;
+package steps;
 
 import controller.RoverController;
 import io.cucumber.java.After;

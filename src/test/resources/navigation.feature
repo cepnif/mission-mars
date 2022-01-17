@@ -10,19 +10,17 @@ Feature: Navigation of the robotic rover to the left right forward and back dire
 
   Scenario: The rover should be able to turn left
     When the operator sends a single command of turn left
-    Then the rover is settled at coordinates x = 0 and y =0
+    Then the rover is settled at coordinates x = 0 and y = 0
     And  the rover is facing towards west
-    And  the initial coordinates of the rover is not changed
 
   Scenario: The rover should be able to turn right
     When the operator sends a single command of turn right
-    Then the rover is settled at coordinates x = 0 and y =0
+    Then the rover is settled at coordinates x = 0 and y = 0
     And  the rover is facing towards east
-    And  the initial coordinates of the rover is not changed
 
   Scenario: The rover should be able to move forward
     When the operator sends a single command of move 3 units forward
-    Then the rover is not positioning at its initial location
+    Then the rover is not positioning at its initial coordinates
     And  the rover is settled at coordinates x = 0 and y = 3
     And  the rover is facing towards north
 
@@ -30,7 +28,7 @@ Feature: Navigation of the robotic rover to the left right forward and back dire
      # The rover will be facing to reverse direction accordingly.
   Scenario: The rover should be able to move back
     When the operator sends a single command of move 5 units back
-    Then the rover is not positioning at its initial location
+    Then the rover is not positioning at its initial coordinates
     And  the rover is settled at coordinates x = 0 and y = -5
     And  the rover is facing towards south
 
