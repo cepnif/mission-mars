@@ -1,6 +1,6 @@
-package marsrover;
+package controller;
 
-public class Rover {
+public class RoverController {
     public static final Integer N = 1;
     public static final Integer E = 2;
     public static final Integer S = 3;
@@ -8,7 +8,7 @@ public class Rover {
     Integer x = 0;
     Integer y = 0;
     Integer facing = N;
-    public Rover() {
+    public RoverController() {
     }
     public void setPosition(Integer x, Integer y, Integer facing) {
         this.x = x;
@@ -26,10 +26,10 @@ public class Rover {
         } else if (facing == 4) {
             dir = 'W';
         }
-        System.out.println(x   " "   y   " "   dir);
+        System.out.println(x   + " " +  y +  " "  + dir);
     }
     public void process(String commands) {
-        for (int idx = 0; idx < commands.length(); idx  ) {
+        for (int idx = 0; idx < commands.length(); idx++  ) {
             process(commands.charAt(idx));
         }
     }
@@ -47,9 +47,9 @@ public class Rover {
     }
     private void move() {
         if (facing == N) {
-            this.y  ;
+            this.y++;  ;
         } else if (facing == E) {
-            this.x  ;
+            this.x++; ;
         } else if (facing == S) {
             this.y--;
         } else if (facing == W) {
@@ -60,15 +60,15 @@ public class Rover {
         facing = (facing - 1) < N ? W : facing - 1;
     }
     private void turnRight() {
-        facing = (facing   1) > W ? N : facing   1;
+        facing = (facing + 1) > W ? N : facing  + 1;
     }
     public static void main(String args[]) {
-        Rover rover = new Rover();
-        rover.setPosition(1, 2, N);
-        rover.process("LMLMLMLMM");
-        rover.printPosition(); // prints 1 3 N
-        rover.setPosition(3, 3, E);
-        rover.process("MMRMMRMRRM");
-        rover.printPosition(); // prints 5 1 E
+        RoverController roverController = new RoverController();
+        roverController.setPosition(1, 2, N);
+        roverController.process("LMLMLMLMM");
+        roverController.printPosition(); // prints 1 3 N
+        roverController.setPosition(3, 3, E);
+        roverController.process("MMRMMRMRRM");
+        roverController.printPosition(); // prints 5 1 E
     }
 }
