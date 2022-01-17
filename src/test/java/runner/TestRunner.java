@@ -1,2 +1,14 @@
-package runner;public class TestRunner {
+package runner;
+
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
+import org.junit.runner.RunWith;
+
+@RunWith(Cucumber.class)
+@CucumberOptions(features = "src/test/resources/navigation.feature",
+        glue = "steps",
+        plugin = {"pretty"},
+        tags = "",
+        publish = true)
+public class TestRunner {
 }

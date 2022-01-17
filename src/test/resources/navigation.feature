@@ -62,12 +62,17 @@ Feature: Navigation of the robotic rover to the left right forward and back dire
     Then the rover is settled at coordinates x = 1 and y = 3
     And  the rover is facing towards north
 
-  Scenario: The rover should be able to move forward
-    Given the rover is landed
-    When the operator sends turn left command
-    Then the rover is located at here
+  Scenario Outline: The rover should be able to process a series of single navigation commands sequentially
+    When the operator sends a single command of move <distance1> units <direction1>
+    And  the operator sends a single command of move <distance2> units <direction2>
+    And  the operator sends a single command of turn <side1>
+    And  the operator sends a single command of turn <side2>
+    Then the rover is settled at coordinates x = <axisX> and y = <axisY>
+    And  the rover is facing towards <facing>
 
-  Scenario: The rover should be able to move to a given location
-    Given the rover is landed
-    When the operator sends turn left command
-    Then the rover is located at here
+    Examples:
+      | distance1 | direction1 | distance2 | direction2 | side1 | side2 | axisX | axisY | facing |
+      | 5         | forward    | 2         | left       | right | left  | -2    | 5     | west   |
+      | 4         | back       | 6         | right      | back  | left  | -6    | -4    | north  |
+      | 1         | left       | 1         | back       | back  | right | 0     | 0     | north  |
+
