@@ -21,6 +21,18 @@ public class RoverController {
         this.facing = facing;
     }
 
+    public int getAxisX() {
+        return this.x;
+    }
+
+    public int getAxisY() {
+        return this.y;
+    }
+
+    public int getDirection() {
+        return this.facing;
+    }
+
     // changed to static that returns the rover's current position as string
     public static String getPosition() {
         char direction = 'N';
@@ -33,7 +45,7 @@ public class RoverController {
         } else if (facing == 4) {
             direction = 'W';
         }
-        String position = String.valueOf(x) + " " + String.valueOf(y) + direction;
+        String position = String.valueOf(x) + " " + String.valueOf(y) + " " + direction;
         return position;
     }
 
@@ -59,10 +71,11 @@ public class RoverController {
         }
     }
 
+    // access modifier changed to public
     // added a distance parameter so that multiple navigation steps would be available
     // added a print statement to log the rover's moves
     // a logging library like log4j can be added instead
-    private void move(int distance) {
+    public void move(int distance) {
         if (facing == N) {
             this.y = y + distance;
             System.out.println("Move: The rover has moved "
@@ -82,17 +95,19 @@ public class RoverController {
         }
     }
 
+    // access modifier changed to public
     // added a print statement to log the rover's moves
     // a logging library like log4j can be added instead
-    private void turnLeft() {
+    public void turnLeft() {
         facing = (facing - 1) < N ? W : facing - 1;
         System.out.println("Turn: The rover has turned left "
                 + "(" + getPosition() + ")");
     }
 
+    // access modifier changed to public
     // added a print statement to log the rover's moves
     // a logging library like log4j can be added instead
-    private void turnRight() {
+    public void turnRight() {
         facing = (facing + 1) > W ? N : facing + 1;
         System.out.println("Turn: The rover has turned right "
                 + "(" + getPosition() + ")");
