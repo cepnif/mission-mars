@@ -1,11 +1,11 @@
-package steps;
+package hooks;
 
 import controller.RoverController;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 
-public class Hooks {
+public class MyHooks {
 
     // prints initial location of the rover before starting test
     @Before
