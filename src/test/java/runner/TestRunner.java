@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
         glue = {"steps", "hooks"},
         plugin = {"pretty",
                 "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
-        tags = "@Smoke",
+        tags = "",
         dryRun = false,
         publish = true)
 public class TestRunner {
