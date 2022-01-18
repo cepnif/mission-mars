@@ -6,8 +6,9 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "src/test/resources/navigation.feature",
-        glue = "steps",
-        plugin = {"pretty"},
+        glue = {"steps", "hooks"},
+        plugin = {"pretty",
+                "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
         tags = "",
         dryRun = false,
         publish = true)
